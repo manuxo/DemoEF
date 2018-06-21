@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8"></meta>
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<div th:replace="layout/layout :: jumbotron"></div>
+	<nav th:replace="layout/layout :: nav"></nav>
+	<div class="container py-3" style="height:800px!important;">
+		<div class="row">
+			<div class="col-sm-12">
+				<br>
+				<h2>Participantes</h2>
+				<br>
+				<div class="btn-group">
+					<a class="btn btn-primary" th:href="@{/participante/registrar}">Nuevo</a>
+				</div>
+				<br>
+				<table class="table">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Sede</th>
+						<th>TIU</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="participante:${participantes}">
+						<td th:text="${participante.nombre}"></td>
+						<td th:text="${participante.sede}"></td>
+						<td th:text="${participante.tiu}"></td>
+					</tr>
+				</tbody>
+				</table><!-- .table -->
+				
+			</div><!-- .col-sm-12 -->
+		</div><!-- .row -->
+	</div><!-- .container py-3 -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8"></meta>
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<div th:replace="layout/layout :: jumbotron"></div>
+	<nav th:replace="layout/layout :: nav"></nav>
+	<div class="container py-3" style="height:800px!important;">
+		<div class="row">
+			<div class="col-sm-12">
+				<br>
+				<h2>Registrar Participante</h2>
+				<form th:action="@{/participante/registrar}" th:object="${participante}" method="post">
+					<div class="form-group">
+						<label for="nombre">Nombre: </label>
+						<input type="text" id="nombre"  th:field="*{nombre}" class="form-control" required>
+						<label for="sede">Sede: </label>
+						<select class="form-control" id="sede" th:field="*{sede}" required>
+							<option th:each="sede:${sedes}" th:value="${sede}" th:text="${sede}"></option>
+						</select>
+						<label for="tiu">TIU: </label>
+						<input type="number" id="tiu" th:field="*{tiu}" class="form-control" required>
+					</div>
+					<div class="btn-group">
+						<a th:href="@{/participante/listar}" class="btn btn-light">Volver</a>
+						<button type="submit" class="btn btn-primary">Registrar</button>
+					</div>
+				</form>
+			</div><!-- .col-sm-12 -->
+		</div><!-- .row -->
+	</div><!-- .container py-3 -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
