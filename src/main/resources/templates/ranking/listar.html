@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8"></meta>
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<div th:replace="layout/layout :: jumbotron"></div>
+	<nav th:replace="layout/layout :: nav"></nav>
+	<div class="container py-3" style="min-height:800px!important;">
+		<div class="row">
+			<div class="col-sm-12">
+				<br>
+				<h2>Ranking Diario</h2>
+				<br>
+				<div class="btn-group">
+					<a class="btn btn-primary" th:href="@{/ranking/nuevo}">Nuevo</a>
+				</div>
+				<br><br>
+				<div class="panel-group">
+					<div class="panel panel-primary" th:each="ranking:${rankings}">
+						<div class="panel-heading" th:text="${ranking.fecha}"></div>
+						<div class="panel-body">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Participante</th>
+										<th>Puesto</th>
+										<th>Puntaje</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="resultado:${ranking.resultados}">
+										<td th:text="${resultado.participante.nombre}"></td>
+										<td th:text="${resultado.puesto}"></td>
+										<td th:text="${resultado.puntaje}"></td>
+									</tr>
+								</tbody>
+							</table><!-- .table -->
+						</div>
+					</div><!-- .panel panel-primary -->
+				</div><!-- .panel-group -->
+				
+			</div><!-- .col-sm-12 -->
+		</div><!-- .row -->
+	</div><!-- .container py-3 -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

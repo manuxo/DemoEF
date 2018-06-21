@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8"></meta>
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<div th:replace="layout/layout :: jumbotron"></div>
+	<nav th:replace="layout/layout :: nav"></nav>
+	<div class="container py-3" style="min-height:800px!important;">
+		<div class="row">
+			<div class="col-sm-12">
+				<br>
+				<h2>Nuevo Ranking</h2>
+				<form th:action="@{/ranking/nuevo}" th:object="${rankingViewModel}" method="post">
+					<div class="form-group">
+						<label for="fecha">Fecha: </label>
+						<input type="date" class="form-control" th:field="*{fecha}" required>
+						<label for="primerLugar">Primer puesto: </label>
+						<select class="form-control" id="primerLugar" th:field="*{primerLugar.participante}" required>
+							<option th:each="participante:${participantes}" th:value="${participante.id}" th:text="${participante.nombre}"></option>
+						</select>
+						<label for="segundoLugar">Segundo puesto: </label>
+						<select class="form-control" id="segundoLugar" th:field="*{segundoLugar.participante}" required>
+							<option th:each="participante:${participantes}" th:value="${participante.id}" th:text="${participante.nombre}"></option>
+						</select>
+						<label for="tercerLugar">Tercer puesto: </label>
+						<select class="form-control" id="tercerLugar" th:field="*{tercerLugar.participante}" required>
+							<option th:each="participante:${participantes}" th:value="${participante.id}" th:text="${participante.nombre}"></option>
+						</select>
+						<label for="cuartoLugar">Cuarto puesto: </label>
+						<select class="form-control" id="cuartoLugar" th:field="*{cuartoLugar.participante}" required>
+							<option th:each="participante:${participantes}" th:value="${participante.id}" th:text="${participante.nombre}"></option>
+						</select>
+					</div>
+					<div class="btn-group">
+						<a th:href="@{/ranking/listar}" class="btn btn-light">Volver</a>
+						<button type="submit" class="btn btn-primary">Registrar</button>
+					</div>
+				</form>
+			</div><!-- .col-sm-12 -->
+		</div><!-- .row -->
+	</div><!-- .container py-3 -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
