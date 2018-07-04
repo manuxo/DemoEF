@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8"></meta>
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<div th:replace="layout/layout :: jumbotron"></div>
+	<nav th:replace="layout/layout :: nav"></nav>
+	<div class="container py-3" style="min-height:800px!important;">
+		<div class="row">
+			<div class="col-sm-12">
+				<br>
+				<h2>Editar Ranking</h2>
+				<form th:action="@{/ranking/editar/} + ${ranking.id}" th:object="${ranking}" method="post">
+					<div class="form-group">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Participante</th>
+									<th>Puesto</th>
+									<th>Puntaje</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="resultado:${ranking.resultados}">
+									<td>
+										<input type="text" th:value="${resultado.participante.nombre}" class="form-control" disabled>
+									</td>
+									<td>
+										<select class="form-control" name="puesto[]">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" th:value="${resultado.puntaje}" class="form-control" disabled>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="btn-group">
+						<a th:href="@{/ranking/listar}" class="btn btn-light">Volver</a>
+						<button type="submit" class="btn btn-primary">Editar</button>
+					</div>
+				</form>
+			</div><!-- .col-sm-12 -->
+		</div><!-- .row -->
+	</div><!-- .container py-3 -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	
+</body>
+</html>

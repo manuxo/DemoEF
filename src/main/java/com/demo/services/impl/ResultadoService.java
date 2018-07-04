@@ -1,5 +1,6 @@
 package com.demo.services.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,6 @@ public class ResultadoService implements IResultadoService {
 	@Transactional
 	public void save(Resultado entity) {
 		// TODO Auto-generated method stub
-		this.calcularPuntaje(entity);
 		resultadoRepo.save(entity);
 	}
 
@@ -60,6 +60,21 @@ public class ResultadoService implements IResultadoService {
 			entity.setPuntaje(1);
 			break;
 		}
+	}
+
+	@Override
+	@Transactional
+	public void update(Resultado entity) {
+		// TODO Auto-generated method stub
+		this.calcularPuntaje(entity);
+		resultadoRepo.save(entity);
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public int sumaPuntajeByParticipanteIdEntreFechas(Long id, Date fechaInicial, Date fechaFinal) {
+		// TODO Auto-generated method stub
+		return resultadoRepo.sumaPuntajeByParticipanteIdEntreFechas(id, fechaInicial, fechaFinal);
 	}
 
 }

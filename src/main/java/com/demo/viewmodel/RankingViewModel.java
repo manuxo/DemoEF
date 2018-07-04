@@ -6,53 +6,62 @@ import com.demo.models.entities.Resultado;
 
 public class RankingViewModel {
 	private RankingDiario ranking;
-	private Resultado primerLugar;
-	private Resultado segundoLugar;
-	private Resultado tercerLugar;
-	private Resultado cuartoLugar;
+	private Resultado resultadoUno;
+	private Resultado resultadoDos;
+	private Resultado resultadoTres;
+	private Resultado resultadoCuatro;
 	private String fecha;
 	
 	//TODO: constructor
 	
 	public RankingViewModel() {
 		this.ranking = new RankingDiario();
-		this.primerLugar = new Resultado();
-		this.segundoLugar = new Resultado();
-		this.tercerLugar = new Resultado();
-		this.cuartoLugar = new Resultado();
+		this.resultadoUno = new Resultado();
+		this.resultadoDos = new Resultado();
+		this.resultadoTres = new Resultado();
+		this.resultadoCuatro = new Resultado();
 	}
 	
 	//TODO: getter-setter
-	
+
 	public RankingDiario getRanking() {
 		return ranking;
 	}
+
 	public void setRanking(RankingDiario ranking) {
 		this.ranking = ranking;
 	}
-	public Resultado getPrimerLugar() {
-		return primerLugar;
+
+	public Resultado getResultadoUno() {
+		return resultadoUno;
 	}
-	public void setPrimerLugar(Resultado primerLugar) {
-		this.primerLugar = primerLugar;
+
+	public void setResultadoUno(Resultado resultadoUno) {
+		this.resultadoUno = resultadoUno;
 	}
-	public Resultado getSegundoLugar() {
-		return segundoLugar;
+
+	public Resultado getResultadoDos() {
+		return resultadoDos;
 	}
-	public void setSegundoLugar(Resultado segundoLugar) {
-		this.segundoLugar = segundoLugar;
+
+	public void setResultadoDos(Resultado resultadoDos) {
+		this.resultadoDos = resultadoDos;
 	}
-	public Resultado getTercerLugar() {
-		return tercerLugar;
+
+	public Resultado getResultadoTres() {
+		return resultadoTres;
 	}
-	public void setTercerLugar(Resultado tercerLugar) {
-		this.tercerLugar = tercerLugar;
+
+	public void setResultadoTres(Resultado resultadoTres) {
+		this.resultadoTres = resultadoTres;
 	}
-	public Resultado getCuartoLugar() {
-		return cuartoLugar;
+
+	public Resultado getResultadoCuatro() {
+		return resultadoCuatro;
 	}
-	public void setCuartoLugar(Resultado cuartoLugar) {
-		this.cuartoLugar = cuartoLugar;
+
+	public void setResultadoCuatro(Resultado resultadoCuatro) {
+		this.resultadoCuatro = resultadoCuatro;
 	}
 
 	public String getFecha() {
@@ -62,4 +71,7 @@ public class RankingViewModel {
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-}
+	
+	
+	
+}//:~

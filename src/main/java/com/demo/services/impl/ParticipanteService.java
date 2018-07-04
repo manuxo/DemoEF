@@ -43,4 +43,10 @@ public class ParticipanteService implements IParticipanteService {
 		// TODO Auto-generated method stub
 		participanteRepo.delete(entity);
 	}
+
+	@Override
+	public void update(Participante entity) {
+		// TODO Auto-generated method stub
+		participanteRepo.save(entity);
+	}
 }

@@ -20,10 +20,8 @@ public class Resultado implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
 	private int puntaje;
 	
-	@NotNull
 	private int puesto;
 	
 	@NotNull

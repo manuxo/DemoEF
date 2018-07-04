@@ -35,6 +35,7 @@ public class RankingDiarioService implements IRankingDiarioService {
 	@Transactional
 	public void save(RankingDiario entity) {
 		// TODO Auto-generated method stub
+		entity.setEstado("pendiente");
 		rankingRepo.save(entity);
 	}
 
@@ -43,6 +44,13 @@ public class RankingDiarioService implements IRankingDiarioService {
 	public void delete(RankingDiario entity) {
 		// TODO Auto-generated method stub
 		rankingRepo.delete(entity);
+	}
+
+	@Override
+	public void update(RankingDiario entity) {
+		// TODO Auto-generated method stub
+		entity.setEstado("terminado");
+		rankingRepo.save(entity);
 	}
 
 }

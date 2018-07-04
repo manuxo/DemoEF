@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8"></meta>
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<div th:replace="layout/layout :: jumbotron"></div>
+	<nav th:replace="layout/layout :: nav"></nav>
+	<div class="container py-3" style="min-height:800px!important;">
+		<div class="row">
+			<div class="col-sm-12">
+				<br>
+				<div class="panel-group">
+					<div class="panel panel-primary">
+						<div class="panel-heading">Ranking General</div>
+						<div class="panel-body">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Participante</th>
+										<th>Puesto</th>
+										<th>Puntaje</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="resultado:${resultados}">
+										<td th:text="${resultado.participante.nombre}"></td>
+										<td th:text="${resultado.puesto}"></td>
+										<td th:text="${resultado.puntaje}"></td>
+									</tr>
+								</tbody>
+							</table>
+						<div class="btn-group">
+							<a class="btn btn-light" th:href="@{/ranking/listar}">Volver</a>
+						</div>
+						</div><!-- .panel-body-->
+					</div><!-- .panel panel-primary -->
+				</div><!-- .panel-group -->
+			</div><!-- .col-sm-12 -->
+		</div><!-- .row -->
+	</div><!-- .container py-3 -->
+
+	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:src="@{/js/edit_table.js}"></script>
+</body>
+</html>

@@ -29,6 +29,9 @@ public class RankingDiario implements Serializable {
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
+	
+	@NotNull
+	private String estado; // pendiente o terminado
 
 	@OneToMany(mappedBy="ranking",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	private List<Resultado> resultados;
@@ -58,4 +61,13 @@ public class RankingDiario implements Serializable {
 	public void setResultados(List<Resultado> resultados) {
 		this.resultados = resultados;
 	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	
 }

@@ -15,20 +15,20 @@
 					<div class="form-group">
 						<label for="fecha">Fecha: </label>
 						<input type="date" class="form-control" th:field="*{fecha}" required>
-						<label for="primerLugar">Primer puesto: </label>
-						<select class="form-control" id="primerLugar" th:field="*{primerLugar.participante}" required>
+						<label for="primerLugar">Participante #1: </label>
+						<select class="form-control" id="primerLugar" th:field="*{resultadoUno.participante}" required>
 							<option th:each="participante:${participantes}" th:value="${participante.id}" th:text="${participante.nombre}"></option>
 						</select>
-						<label for="segundoLugar">Segundo puesto: </label>
-						<select class="form-control" id="segundoLugar" th:field="*{segundoLugar.participante}" required>
+						<label for="segundoLugar">Participante #2: </label>
+						<select class="form-control" id="segundoLugar" th:field="*{resultadoDos.participante}" required>
 							<option th:each="participante:${participantes}" th:value="${participante.id}" th:text="${participante.nombre}"></option>
 						</select>
-						<label for="tercerLugar">Tercer puesto: </label>
-						<select class="form-control" id="tercerLugar" th:field="*{tercerLugar.participante}" required>
+						<label for="tercerLugar">Participante #3: </label>
+						<select class="form-control" id="tercerLugar" th:field="*{resultadoTres.participante}" required>
 							<option th:each="participante:${participantes}" th:value="${participante.id}" th:text="${participante.nombre}"></option>
 						</select>
-						<label for="cuartoLugar">Cuarto puesto: </label>
-						<select class="form-control" id="cuartoLugar" th:field="*{cuartoLugar.participante}" required>
+						<label for="cuartoLugar">Participante #4: </label>
+						<select class="form-control" id="cuartoLugar" th:field="*{resultadoCuatro.participante}" required>
 							<option th:each="participante:${participantes}" th:value="${participante.id}" th:text="${participante.nombre}"></option>
 						</select>
 					</div>
@@ -42,5 +42,6 @@
 	</div><!-- .container py-3 -->
 
 	<footer th:replace="layout/layout :: footer"></footer>
+	
 </body>
 </html>

@@ -10,16 +10,37 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<br>
-				<h2>Ranking Diario</h2>
-				<br>
-				<div class="btn-group">
-					<a class="btn btn-primary" th:href="@{/ranking/nuevo}">Nuevo</a>
-				</div>
-				<br><br>
 				<div class="panel-group">
+					<div class="panel panel-primary">
+						<div class="panel-heading">Ranking General</div>
+						<div class="panel-body">
+							<form th:action="@{/ranking/reporte}" method="post">
+								<div class="form-group">
+									<label for="fechaInicial">Fecha Inicial: </label>
+									<input id="fechaInicial" type="date" name="fechaInicial" class="form-control" required>
+									<label for="fechaFinal">Fecha Final: </label>
+									<input id="fechaFinal" type="date" name="fechaFinal" class="form-control" required>
+								</div>
+								<div class="btn-group">
+									<button type="submit" class="btn btn-primary">Ver</button>
+								</div>
+							</form>
+						</div><!-- .panel-body-->
+					</div><!-- .panel panel-primary -->
+				
+					<br>
+					<div class="panel panel-primary">
+						<div class="panel-heading">Ranking Diario</div>
+					</div><!-- .panel panel-primary -->
+					<br>
+					<div class="btn-group">
+						<a class="btn btn-primary" th:href="@{/ranking/nuevo}">Nuevo</a>
+					</div>
+					<br><br>
 					<div class="panel panel-primary" th:each="ranking:${rankings}">
 						<div class="panel-heading" th:text="${ranking.fecha}"></div>
 						<div class="panel-body">
+							<br>
 							<table class="table">
 								<thead>
 									<tr>
@@ -35,8 +56,12 @@
 										<td th:text="${resultado.puntaje}"></td>
 									</tr>
 								</tbody>
-							</table><!-- .table -->
-						</div>
+							</table>
+							<div class="btn-group">
+								<a th:href="@{/ranking/editar/} + ${ranking.id}" class="btn btn-primary" th:if="${ranking.estado} == 'pendiente'"> Editar</a>
+								<a th:if="${ranking.estado} == 'terminado'" class="btn btn-success">Finalizado</a>
+							</div>
+						</div><!-- .panel-body -->
 					</div><!-- .panel panel-primary -->
 				</div><!-- .panel-group -->
 				
@@ -45,5 +70,6 @@
 	</div><!-- .container py-3 -->
 
 	<footer th:replace="layout/layout :: footer"></footer>
+	<script th:src="@{/js/edit_table.js}"></script>
 </body>
 </html>
